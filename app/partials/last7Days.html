@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Last 7 Days</h1>
+    <table class="table table-hover">
+        <tr>
+            <th>Time</th>
+            <th>Reading</th>
+            <th>Temperature</th>
+        </tr>
+        <tr data-ng-repeat="hour in last7Days">
+            <td>{{ hour.id | date:'medium' }}</td>
+            <td>{{ hour.averageUsage | number }}W</td>
+            <td>{{ hour.averageTempF | number:2 }}&deg;F</td>
+        </tr>
+    </table>
+
+</div>

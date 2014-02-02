@@ -1,0 +1,48 @@
+<div class="container">
+    <div id="current" class="panel panel-default">
+        <div class="panel-body">
+            <h2>Most Recent Reading</h2>
+            <table class="table table-hover">
+                <tr>
+                    <td>Last Reading</td>
+                    <td>{{ lastReading.totalWatts }}W</td>
+                </tr>
+                <tr>
+                    <td>Temperature</td>
+                    <td>{{ lastReading.tempF }}&deg;F</td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>{{ lastReading.readingTimestamp | date:'medium' }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="last_hour_chart" class="panel panel-default">
+        <div class="panel-body">
+            <h2>Last Hour</h2>
+            <p>CHART</p>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h2><a href="" data-toggle="collapse" data-target="#last_hour_details">Last Hour Details</a></h2>
+            <div id="last_hour_details" class="collapse">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Time</th>
+                        <th>Reading</th>
+                        <th>Temperature</th>
+                    </tr>
+                    <tr data-ng-repeat="reading in readingsFromLastHour">
+                        <td>{{ reading.readingTimestamp | date:'medium' }}</td>
+                        <td>{{ reading.totalWatts }}W</td>
+                        <td>{{ reading.tempF }}&deg;F</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

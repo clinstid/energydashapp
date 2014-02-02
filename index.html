@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="energydashApp">
+<head>
+    <meta charset="UTF-8">
+    <title>energydash</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/energydash.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="navbar-brand" href="https://github.com/clinstid/energydashapp">energydash</a>
+        </div>
+
+        <div class="collapse navbar-collapse" data-ng-controller="headerController">
+            <ul class="nav navbar-nav">
+                <li ng-class="{ active: isActive('current') }"><a href="#/" ng-click="setActive('current')">Current/Last 24 Hours</a></li>
+                <li ng-class="{ active: isActive('last_7_days') }"><a href="#/last_7_days" ng-click="setActive('last_7_days')">Last 7 Days</a></li>
+                <li ng-class="{ active: isActive('day_of_the_week') }"><a href="#/day_of_the_week" ng-click="setActive('day_of_the_week')">Day of the Week</a></li>
+                <li ng-class="{ active: isActive('hour_of_the_day') }"><a href="#/hour_of_the_day" ng-click="setActive('hour_of_the_day')">Hour of the Day</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<!-- Placeholder for view -->
+<div data-ng-view></div>
+
+<!-- External libs -->
+<script src="libs/angular.js"></script>
+<script src="libs/angular-route.js"></script>
+<script src="libs/jquery.min.js"></script>
+<script src="libs/bootstrap.js"></script>
+
+<!-- App libs -->
+<script src="app/app.js"></script>
+<script src="app/services/EnergydashService.js"></script>
+<script src="app/controllers/ReadingsController.js"></script>
+<script src="app/controllers/HoursController.js"></script>
+<script src="app/controllers/HeaderController.js"></script>
+</body>
+</html>

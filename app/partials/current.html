@@ -1,18 +1,18 @@
 <div class="container">
     <div id="current" class="panel panel-default">
         <div class="panel-body">
-            <h2>Most Recent Reading</h2>
-            <table class="table table-hover">
+            <h3>Most Recent Reading</h3>
+            <table class="table table-hover table-condensed">
                 <tr>
-                    <td>Last Reading</td>
+                    <td><strong>Last Reading</strong></td>
                     <td>{{ lastReading.totalWatts }}W</td>
                 </tr>
                 <tr>
-                    <td>Temperature</td>
+                    <td><strong>Temperature</strong></td>
                     <td>{{ lastReading.tempF }}&deg;F</td>
                 </tr>
                 <tr>
-                    <td>Time</td>
+                    <td><strong>Time</strong></td>
                     <td>{{ lastReading.readingTimestamp | date:'medium' }}</td>
                 </tr>
             </table>
@@ -21,16 +21,27 @@
 
     <div id="last_hour_chart" class="panel panel-default">
         <div class="panel-body">
-            <h2>Last Hour</h2>
-            <p>CHART</p>
+            <h3>Last Hour</h3>
+            <table class="table table-hover table-condensed">
+                <tr ng-repeat="(key, value) in lastHourStats">
+                    <td><strong>{{ key }}</strong></td>
+                    <td>{{ value | number:2 }}</td>
+                </tr>
+            </table>
+            <div id="current_chart" style="height: 400px; width: 100%;"></div>
         </div>
     </div>
 
     <div class="panel panel-default">
         <div class="panel-body">
-            <h2><a href="" data-toggle="collapse" data-target="#last_hour_details">Last Hour Details</a></h2>
+            <h3>
+                Last Hour Details
+                <button type="button" class="btn btn-default btn-small" data-toggle="collapse" data-target="#last_hour_details">
+                    Show/Hide
+                </button>
+            </h3>
             <div id="last_hour_details" class="collapse">
-                <table class="table table-hover">
+                <table class="table table-hover table-condensed">
                     <tr>
                         <th>Time</th>
                         <th>Reading</th>

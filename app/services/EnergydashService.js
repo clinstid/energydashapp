@@ -23,7 +23,7 @@ app.service('energydashService', function ($http) {
         });
     };
 
-    this.getLast7Days = function () {
+    this.getHoursFromLast7Days = function () {
         var end = new Date();
         var start = new Date(end.getTime() - 1000*60*60*24*7);
         return $http.get('/energydashws/hours/range/start=' + start.getTime() + '&end=' + end.getTime()).then(function (result) {

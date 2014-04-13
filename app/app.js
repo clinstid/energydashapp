@@ -16,6 +16,17 @@ app.config(function ($routeProvider) {
             controller: 'hoursController',
             templateUrl: 'app/partials/last7Days.html'
         })
+        .when('/day_of_the_week',
+        {
+            controller: 'dowController',
+            templateUrl: 'app/partials/hoursByDayOfWeek.html'
+        })
+        .when('/hour_of_the_day',
+        {
+            controller: 'hodController',
+            templateUrl: 'app/partials/hourOfTheDay.html'
+
+        })
         .otherwise({ redirectTo: '/' });
 });
 

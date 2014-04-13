@@ -2,25 +2,27 @@
 <html lang="en" data-ng-app="energydashApp">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>energydash</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/energydash.css" rel="stylesheet">
+    <link href="libs/jqplot/dist/jquery.jqplot.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <a class="navbar-brand" id="navbar-brand" href="https://github.com/clinstid/energydashapp">energydash</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" id="navbar-brand" href="https://github.com/clinstid/energydashapp">energydash</a>
         </div>
 
-        <div class="collapse navbar-collapse" data-ng-controller="headerController">
+        <div class="collapse navbar-collapse" data-ng-controller="headerController" id="navbar-collapse">
             <ul class="nav navbar-nav">
                 <li ng-class="{ active: isActive('current') }"><a href="#/" ng-click="setActive('current')">Current/Last 24 Hours</a></li>
                 <li ng-class="{ active: isActive('last_7_days') }"><a href="#/last_7_days" ng-click="setActive('last_7_days')">Last 7 Days</a></li>
@@ -36,10 +38,14 @@
 <div data-ng-view></div>
 
 <!-- External libs -->
-<script src="libs/angular.js"></script>
-<script src="libs/angular-route.js"></script>
-<script src="libs/jquery.min.js"></script>
-<script src="libs/bootstrap.js"></script>
+<script src="libs/angular/angular.js"></script>
+<script src="libs/angular/angular-route.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<!--[if lt IE 9]><script src="libs/jqplot/dist/excanvas.js"></script><![endif]-->
+<script src="libs/bootstrap/bootstrap.js"></script>
+<script src="libs/jqplot/dist/jquery.jqplot.js"></script>
+<script src="libs/jqplot/dist/plugins/jqplot.dateAxisRenderer.min.js"></script>
+<script src="libs/jqplot/dist/plugins/jqplot.highlighter.min.js"></script>
 
 <!-- App libs -->
 <script src="app/app.js"></script>
